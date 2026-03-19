@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Šifrator | Cezarova Šifra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cipher.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg container-fluid px-4">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="index.html">
+                <div class="logo-emblem">
+                    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="1.5" />
+                        <circle cx="30" cy="30" r="22" fill="none" stroke="#C9A84C" stroke-width="0.5"
+                            stroke-dasharray="3,3" />
+                        <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Cinzel"
+                            font-size="18" fill="#C9A84C" font-weight="700">C</text>
+                        <path d="M 30 4 L 30 8 M 30 52 L 30 56 M 4 30 L 8 30 M 52 30 L 56 30" stroke="#C9A84C"
+                            stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="brand-main" data-i18n="brand-main">Cezarova Šifra</span>
+                    <span class="brand-sub" data-i18n="brand-sub">Drevna umetnost šifrovanja</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="toggler-icon">☰</span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                <ul class="navbar-nav align-items-lg-center gap-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav-home">Početna</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cipher.html"
+                            data-i18n="nav-cipher">Šifrator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav-about">O projektu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav-contact">Kontakt</a>
+                    </li>
+                    <li class="nav-item ms-lg-2"><a class="nav-link nav-login-btn" href="login.html"
+                            data-i18n="nav-login">Prijava</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <div class="lang-toggle">
+                            <button class="lang-btn active" onclick="setLanguage('sr')" id="btn-sr">SR</button>
+                            <span class="lang-divider">|</span>
+                            <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero text-center">
+        <div class="container">
+            <p class="section-eyebrow" data-i18n="cipher-eyebrow">Interaktivni alat</p>
+            <h1 class="page-hero-title" data-i18n="cipher-page-title">Šifrator & Dešifrator</h1>
+            <p class="page-hero-desc" data-i18n="cipher-page-desc">
+                Unesi poruku, odaberi ključ i pošalji zahtjev  API će šifrovati ili dešifrovati tvoj tekst.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+
+            <div class="text-center mb-4">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-mode active" id="btn-encrypt" onclick="setMode('encrypt')"
+                        data-i18n="mode-encrypt">Šifruj</button>
+                    <button type="button" class="btn btn-mode" id="btn-decrypt" onclick="setMode('decrypt')"
+                        data-i18n="mode-decrypt">Dešifruj</button>
+                </div>
+                <p class="mt-2 mb-0" style="font-style: italic; color: var(--cream-muted); font-size: 0.9rem;"
+                    id="modeHint" data-i18n="mode-hint-encrypt">
+                    Pretvori čitljiv tekst u šifrovanu poruku
+                </p>
+            </div>
+
+            <div class="row g-4 align-items-start">
+
+                <div class="col-lg-5">
+                    <div class="cipher-panel">
+                        <div class="cipher-panel-header">
+                            <span class="panel-label" data-i18n="panel-input-label">Originalna poruka</span>
+                            <button class="btn-panel-action" onclick="clearInput()"
+                                data-i18n="btn-clear">Obriši</button>
+                        </div>
+                        <textarea id="inputText" class="cipher-textarea" placeholder="Unesi tekst ovdje..."
+                            maxlength="500" oninput="updateCharCount()"></textarea>
+                        <div class="cipher-panel-footer">
+                            <span
+                                style="font-family: var(--font-display); font-size: 0.68rem; color: var(--cream-muted);">
+                                <span id="charCount">0</span>/500
+                            </span>
+                            <button class="btn-panel-action" onclick="pasteFromClipboard()"
+                                data-i18n="btn-paste">Nalijepi</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div class="d-flex flex-column align-items-center gap-3 py-3">
+
+                        <div class="text-center w-100">
+                            <label class="field-label d-block mb-2" data-i18n="key-label">Ključ</label>
+                            <div class="d-flex align-items-center justify-content-center border rounded-1"
+                                style="border-color: var(--border-strong) !important; overflow: hidden;">
+                                <button class="key-arrow-btn" onclick="adjustKey(-1)">−</button>
+                                <input type="number" id="shiftKey" class="key-input" value="3" min="1" max="25"
+                                    onchange="validateKey()" />
+                                <button class="key-arrow-btn" onclick="adjustKey(1)">+</button>
+                            </div>
+                            <small class="text-cream-muted"
+                                style="font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.1em;">1 
+                                25</small>
+                        </div>
+
+                        <button class="btn-gold w-100 justify-content-center" id="submitBtn" onclick="submitCipher()">
+                            <span id="submitText" data-i18n="btn-submit">Šifruj</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+
+                        <button class="btn-outline-gold w-100 justify-content-center" onclick="swapTexts()"
+                            data-i18n="btn-swap">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
+                            </svg>
+                            Zamijeni
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="cipher-panel">
+                        <div class="cipher-panel-header">
+                            <span class="panel-label" id="outputLabel" data-i18n="panel-output-label">Šifrovana
+                                poruka</span>
+                            <button class="btn-panel-action" onclick="copyOutput()" id="copyBtn"
+                                data-i18n="btn-copy">Kopiraj</button>
+                        </div>
+
+                        <div id="outputIdle" class="cipher-output-state">
+                            <p style="font-style: italic; color: var(--cream-muted); font-size: 0.95rem;"
+                                data-i18n="output-idle">
+                                Ovdje će se pojaviti rezultat...
+                            </p>
+                        </div>
+
+                        <div id="outputLoading" class="cipher-output-state d-none">
+                            <div class="spinner-border spinner-border-sm me-2" style="color: var(--gold);"></div>
+                            <span
+                                style="font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.15em; color: var(--gold-dim);"
+                                data-i18n="output-loading">
+                                Šifrovanje u toku...
+                            </span>
+                        </div>
+
+                        <div id="outputResult" class="cipher-output-state d-none align-items-start">
+                            <p id="resultText" class="result-text"></p>
+                        </div>
+
+                        <div id="outputError" class="cipher-output-state d-none">
+                            <div class="alert-dark-custom w-100 text-center p-3 rounded">
+                                <span style="color: #c0392b;">⚠</span>
+                                <span id="errorMsg" class="ms-2" style="font-size: 0.85rem;"
+                                    data-i18n="output-error">Greška pri slanju zahtjeva.</span>
+                            </div>
+                        </div>
+
+                        <div class="cipher-panel-footer">
+                            <span id="apiStatusText"
+                                style="font-family: var(--font-display); font-size: 0.68rem; color: var(--cream-muted);"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                    <div class="footer-brand" data-i18n="brand-main">Cezarova Šifra</div>
+                    <p class="footer-sub" data-i18n="footer-sub">Projektni zadatak · Web dizajn</p>
+                </div>
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <nav class="footer-nav">
+                        <a href="index.html" data-i18n="nav-home">Početna</a>
+                        <a href="cipher.html" data-i18n="nav-cipher">Šifrator</a>
+                        <a href="about.html" data-i18n="nav-about">O projektu</a>
+                        <a href="contact.html" data-i18n="nav-contact">Kontakt</a>
+                    </nav>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <p class="footer-copy" data-i18n="footer-copy">© 2026 · Državni Univerzitet u Novom Pazaru</p>
+                    <p class="footer-copy" style="opacity:0.5; font-size:0.75rem;">SPQR · <em>Senatus Populusque
+                            Romanus</em></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cipher.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O projektu | Cezarova Šifra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg container-fluid px-4">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="index.html">
+                <div class="logo-emblem">
+                    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="1.5" />
+                        <circle cx="30" cy="30" r="22" fill="none" stroke="#C9A84C" stroke-width="0.5"
+                            stroke-dasharray="3,3" />
+                        <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Cinzel"
+                            font-size="18" fill="#C9A84C" font-weight="700">C</text>
+                        <path d="M 30 4 L 30 8 M 30 52 L 30 56 M 4 30 L 8 30 M 52 30 L 56 30" stroke="#C9A84C"
+                            stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="brand-main" data-i18n="brand-main">Cezarova Šifra</span>
+                    <span class="brand-sub" data-i18n="brand-sub">Drevna umetnost šifrovanja</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="toggler-icon">☰</span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                <ul class="navbar-nav align-items-lg-center gap-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav-home">Početna</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cipher.html" data-i18n="nav-cipher">Šifrator</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html" data-i18n="nav-about">O
+                            projektu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav-contact">Kontakt</a>
+                    </li>
+                    <li class="nav-item ms-lg-2"><a class="nav-link nav-login-btn" href="login.html"
+                            data-i18n="nav-login">Prijava</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <div class="lang-toggle">
+                            <button class="lang-btn active" onclick="setLanguage('sr')" id="btn-sr">SR</button>
+                            <span class="lang-divider">|</span>
+                            <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero text-center">
+        <div class="container">
+            <p class="section-eyebrow" data-i18n="about-eyebrow">Projekat & Historija</p>
+            <h1 class="page-hero-title" data-i18n="about-page-title">O projektu</h1>
+            <p class="page-hero-desc" data-i18n="about-page-desc">
+                Sve o Cezarovoj šifri, matematici iza nje, i načinu na koji ovaj projekat funkcioniše.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5 align-items-start">
+
+                <div class="col-lg-6">
+                    <p class="section-eyebrow" data-i18n="about-hist-eyebrow">Historija</p>
+                    <h2 class="section-title mb-3" data-i18n="about-hist-title">Julius Caesar & kriptografija</h2>
+                    <p class="body-text" data-i18n="about-hist-p1">
+                        Gaj Julije Cezar (100–44 p.n.e.) bio je rimski vojskovođa i državnik koji je koristio
+                        supstitucijsku šifru kako bi zaštitio vojnu korespondenciju. Poruke su se slale kuririma koji ih
+                        često nisu razumjeli  jedino je primalac znao ključ.
+                    </p>
+                    <p class="body-text" data-i18n="about-hist-p2">
+                        Prema Svetoniju, Cezar je standardno koristio pomak od <strong>3 mjesta</strong>. Slovo A
+                        postaje D, B postaje E, i tako dalje. Za grčku abecedu koristio je latinična slova umjesto
+                        zamjene, čineći poruke još nerazumljivijim.
+                    </p>
+                    <p class="body-text" data-i18n="about-hist-p3">
+                        Cezarova šifra je jedan od najstarijih i najjednostavnijih oblika kriptografije. Danas se
+                        koristi uglavnom u edukativne svrhe kao uvod u kriptografiju i teoriju informacija.
+                    </p>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="timeline">
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">100 p.n.e.</div>
+                            <div class="timeline-body">
+                                <h4 class="timeline-title" data-i18n="tl-1-title">Rođenje Cezara</h4>
+                                <p class="timeline-desc" data-i18n="tl-1-desc">Gaj Julije Cezar rođen je u Rimu, u
+                                    patricijskoj porodici Julija.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">58 p.n.e.</div>
+                            <div class="timeline-body">
+                                <h4 class="timeline-title" data-i18n="tl-2-title">Galski ratovi</h4>
+                                <p class="timeline-desc" data-i18n="tl-2-desc">Tokom pohoda na Galiju, Cezar intenzivno
+                                    koristi šifrovanu komunikaciju sa Rimom.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">~50 p.n.e.</div>
+                            <div class="timeline-body">
+                                <h4 class="timeline-title" data-i18n="tl-3-title">Dokumentovana upotreba</h4>
+                                <p class="timeline-desc" data-i18n="tl-3-desc">Svetonije bilježi Cezarovu upotrebu šifre
+                                    s pomakom od 3 u djelu <em>De Vita Caesarum</em>.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">IX vijek</div>
+                            <div class="timeline-body">
+                                <h4 class="timeline-title" data-i18n="tl-4-title">Al-Kindi analizira šifru</h4>
+                                <p class="timeline-desc" data-i18n="tl-4-desc">Arapski matematičar Al-Kindi opisuje
+                                    metodu frekventne analize kojom se ova šifra može razbiti.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">Danas</div>
+                            <div class="timeline-body">
+                                <h4 class="timeline-title" data-i18n="tl-5-title">Edukativna primjena</h4>
+                                <p class="timeline-desc" data-i18n="tl-5-desc">Cezarova šifra koristi se kao temelj za
+                                    učenje kriptografije i teorije supstitucije.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+
+                <div class="col-lg-6">
+                    <div class="card-dark p-4">
+                        <p class="section-eyebrow mb-1" data-i18n="formula-encrypt">Šifrovanje</p>
+                        <p class="formula-eq mb-3">E(x) = (x + k) <span class="formula-mod">mod</span> 26</p>
+
+                        <hr style="border-color: var(--border);">
+
+                        <p class="section-eyebrow mb-1 mt-3" data-i18n="formula-decrypt">Dešifrovanje</p>
+                        <p class="formula-eq mb-4">D(x) = (x − k + 26) <span class="formula-mod">mod</span> 26</p>
+
+                        <p class="section-eyebrow mb-2" data-i18n="math-example-label">Primjer (k = 3)</p>
+                        <table class="w-100">
+                            <tbody>
+                                <tr class="math-row">
+                                    <td class="math-orig">H (7)</td>
+                                    <td class="math-op">→ (7+3) mod 26 =</td>
+                                    <td class="math-res">K (10)</td>
+                                </tr>
+                                <tr class="math-row">
+                                    <td class="math-orig">Z (25)</td>
+                                    <td class="math-op">→ (25+3) mod 26 =</td>
+                                    <td class="math-res">C (2)</td>
+                                </tr>
+                                <tr class="math-row">
+                                    <td class="math-orig">A (0)</td>
+                                    <td class="math-op">→ (0+3) mod 26 =</td>
+                                    <td class="math-res">D (3)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <p class="section-eyebrow" data-i18n="about-math-eyebrow">Matematika</p>
+                    <h2 class="section-title mb-3" data-i18n="about-math-title">Formula šifrovanja</h2>
+                    <p class="body-text" data-i18n="about-math-p1">
+                        Cezarova šifra je matematički definisana kao modularna aritmetika nad skupom od 26 slova
+                        abecede. Svako slovo se reprezentuje brojem od 0 do 25.
+                    </p>
+                    <p class="body-text" data-i18n="about-math-p2">
+                        Gdje je <strong>x</strong> pozicija slova u abecedi (A=0, B=1...), a <strong>k</strong> je ključ
+                         broj pozicija za koji se slovo pomjera.
+                    </p>
+                    <p class="body-text" data-i18n="about-math-p3">
+                        Postoji samo 25 mogućih ključeva (1–25), što znači da se šifra može razbiti grubom silom u svega
+                        25 pokušaja  što je njezina glavna slabost u modernoj kriptografiji.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-eyebrow" data-i18n="about-tech-eyebrow">Projekat</p>
+                <h2 class="section-title" data-i18n="about-tech-title">Tehnologije & Struktura</h2>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card-dark text-center p-4">
+                        <div class="tech-badge tech-badge--html mb-3">HTML5</div>
+                        <h4 class="tech-name">HTML5</h4>
+                        <p class="tech-desc" data-i18n="tech-html-desc">Semantička struktura svih 5 stranica sajta, sa
+                            Bootstrap mrežom za layout.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card-dark text-center p-4">
+                        <div class="tech-badge tech-badge--css mb-3">CSS3</div>
+                        <h4 class="tech-name">CSS3</h4>
+                        <p class="tech-desc" data-i18n="tech-css-desc">Eksterni stylesheet sa CSS varijablama i
+                            responsive dizajnom.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card-dark text-center p-4">
+                        <div class="tech-badge tech-badge--js mb-3">JS</div>
+                        <h4 class="tech-name">JavaScript</h4>
+                        <p class="tech-desc" data-i18n="tech-js-desc">Validacija formi, API pozivi, SHA-256 hashing i
+                            i18n sistem.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card-dark text-center p-4">
+                        <div class="tech-badge tech-badge--bs mb-3">BS5</div>
+                        <h4 class="tech-name">Bootstrap 5</h4>
+                        <p class="tech-desc" data-i18n="tech-bs-desc">Grid sistem, responzivna navigacija i utility
+                            klase za layout.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-eyebrow text-center mb-4" data-i18n="pages-list-title">Struktura sajta</h3>
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-4">
+                    <a href="index.html" class="page-link-card">
+                        <span class="page-link-num">01</span>
+                        <div>
+                            <span class="page-link-name" data-i18n="nav-home">Početna</span>
+                            <span class="page-link-desc" data-i18n="page-desc-home">Hero, kako funkcioniše,
+                                historija</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="cipher.html" class="page-link-card">
+                        <span class="page-link-num">02</span>
+                        <div>
+                            <span class="page-link-name" data-i18n="nav-cipher">Šifrator</span>
+                            <span class="page-link-desc" data-i18n="page-desc-cipher">API alat, brute force
+                                dekoder</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="about.html" class="page-link-card page-link-card--active">
+                        <span class="page-link-num">03</span>
+                        <div>
+                            <span class="page-link-name" data-i18n="nav-about">O projektu</span>
+                            <span class="page-link-desc" data-i18n="page-desc-about">Historija, matematika,
+                                tehnologije</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="login.html" class="page-link-card">
+                        <span class="page-link-num">04</span>
+                        <div>
+                            <span class="page-link-name" data-i18n="nav-login">Prijava</span>
+                            <span class="page-link-desc" data-i18n="page-desc-login">SHA-256 autentifikacija, JSON
+                                korisnici</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="contact.html" class="page-link-card">
+                        <span class="page-link-num">05</span>
+                        <div>
+                            <span class="page-link-name" data-i18n="nav-contact">Kontakt</span>
+                            <span class="page-link-desc" data-i18n="page-desc-contact">Forma sa regex validacijom</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                    <div class="footer-brand" data-i18n="brand-main">Cezarova Šifra</div>
+                    <p class="footer-sub" data-i18n="footer-sub">Projektni zadatak · Web dizajn</p>
+                </div>
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <nav class="footer-nav">
+                        <a href="index.html" data-i18n="nav-home">Početna</a>
+                        <a href="cipher.html" data-i18n="nav-cipher">Šifrator</a>
+                        <a href="about.html" data-i18n="nav-about">O projektu</a>
+                        <a href="contact.html" data-i18n="nav-contact">Kontakt</a>
+                    </nav>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <p class="footer-copy" data-i18n="footer-copy">© 2026 · Državni Univerzitet u Novom Pazaru</p>
+                    <p class="footer-copy" style="opacity:0.5; font-size:0.75rem;">SPQR · <em>Senatus Populusque
+                            Romanus</em></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

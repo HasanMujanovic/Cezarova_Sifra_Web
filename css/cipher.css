@@ -1,0 +1,191 @@
+.btn-mode {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: var(--cream-muted);
+    border: 1px solid var(--border-strong);
+    padding: 0.6rem 2rem;
+}
+
+.btn-mode:hover {
+    color: var(--gold);
+    background-color: rgba(201, 168, 76, 0.08);
+    border-color: var(--border-strong);
+}
+
+.btn-mode.active {
+    background-color: var(--gold);
+    color: var(--bg-primary);
+    border-color: var(--gold);
+}
+
+.cipher-panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold-dim);
+    border-radius: 4px;
+    overflow: hidden;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cipher-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--border);
+}
+
+.panel-label {
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+}
+
+.btn-panel-action {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--cream-muted);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.btn-panel-action:hover {
+    border-color: var(--gold-dim);
+    color: var(--gold);
+}
+
+.cipher-textarea {
+    flex: 1;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    color: var(--cream);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    padding: 1rem;
+    min-height: 200px;
+}
+
+.cipher-textarea::placeholder {
+    color: var(--cream-muted);
+    font-style: italic;
+}
+
+.cipher-panel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-top: 1px solid var(--border);
+    min-height: 36px;
+}
+
+.key-arrow-btn {
+    background-color: rgba(201, 168, 76, 0.1);
+    border: none;
+    color: var(--gold);
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 36px;
+    height: 42px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.key-arrow-btn:hover {
+    background-color: rgba(201, 168, 76, 0.2);
+}
+
+.key-input {
+    width: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.key-input::-webkit-outer-spin-button,
+.key-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.cipher-output-state {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    min-height: 200px;
+}
+
+.result-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--gold-light);
+    line-height: 1.8;
+    letter-spacing: 0.04em;
+    word-break: break-all;
+    margin: 0;
+    width: 100%;
+}
+
+.brute-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+}
+
+.brute-card:hover {
+    border-color: var(--gold-dim);
+    background-color: var(--bg-card-hover);
+}
+
+.brute-card-key {
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.25rem;
+}
+
+.brute-card-text {
+    font-size: 0.88rem;
+    color: var(--cream-dim);
+    word-break: break-all;
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 991px) {
+    .col-lg-2 .d-flex {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
